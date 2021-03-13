@@ -1,0 +1,16 @@
+{%  extends  "bootstrap/base.html"  %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{%  block  title  %} Editar Producto {%  endblock  %}
+{%  block  content  %}
+<div class="container">
+    <div class="raw">
+      <div class="col-md-6">
+        <h2>Editar Producto</h2>
+        <form method = "POST">
+          {{wtf.quick_form(productoForm)}}
+        </form>
+      </div>
+    </div>
+</div>
+{%  endblock  %}

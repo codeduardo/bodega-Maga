@@ -1,0 +1,28 @@
+{%  extends  "bootstrap/base.html"  %}
+
+{%  block  title  %} {{categoria.nombre}}{%  endblock  %}
+{%  block  content  %}
+
+<h1>Lista de Productos</h1>
+  <a href="/agregarP/{{categoria.id}}">Agregar Producto para {{categoria.nombre}}</a>
+
+  
+  <ul>
+    {% for producto in productos %}
+    <li>{{producto.nombre}}
+      --- <a href="/actualizar/producto/{{producto.id}} ">editar</a>  
+      --- <a href="/eliminar/producto/{{producto.id}} ">eliminar</a> 
+    </li>
+    {% endfor%}
+  </ul>
+{%  endblock  %}
+
+
+
+
+
+
+
+
+
+

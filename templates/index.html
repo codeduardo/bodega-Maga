@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{super()}}
+    CATEGORIAS
+{% endblock %}
+
+{% block body %}
+    <h1>LISTA DE CATEGORIAS</h1>
+    <h2>Se tienen: {{cantidad}} CATEGORIAS</h2>
+    <h3><a href="/agregar">Agregar</a></h3>
+        <ul>
+            {% for categoria in categorias%}
+            <li>
+                {{categoria.nombre}} 
+                --- <a href="/ver/{{categoria.id}} ">Productos</a> 
+                --- <a href="/editar/{{categoria.id}} ">editar</a>  
+                --- <a href="/eliminar/{{categoria.id}} ">eliminar</a>  
+            </li>
+            {% endfor %}
+        </ul>
+
+{% endblock %}
