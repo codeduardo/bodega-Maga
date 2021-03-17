@@ -4,3 +4,4 @@ flask-wtf
 flask-migrate
 Flask-Bootstrap 
 psycopg2
+Flask-Script

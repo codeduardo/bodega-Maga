@@ -1,0 +1,17 @@
+{% extends 'error/base_error.html' %}
+{% block title %}
+    {{super()}}    
+    404
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="raw">
+            <div class="col-ml-10 text-center bg-success text-white bg-info">
+                <h1>Error de pagina no encontrada </h1>
+                <h2>{{error}}</h2>
+                <a href="{{url_for('category.home')}}" class="btn btn-primary">Volver a inicio</a>
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}

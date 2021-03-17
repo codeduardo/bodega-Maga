@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{super()}}
+    CATEGORIAS
+{% endblock %}
+
+{% block content %}
+<div class="container bg-success">
+    <div class="raw">
+        <div class="col-ml-12 text-center ">
+            <h1 class = 'text-success'>LISTA DE CATEGORIAS</h1>
+            <h2>Se tienen: {{cantidad}} CATEGORIAS</h2>
+            <h3><a class="btn btn-info "href="/agregar">Agregar</a></h3>
+                <ul>
+                    {% for categoria in categorias%}
+                    
+                        <li class='bg-info' style="list-style-type: none;">
+
+                            <h5 class="text-uppercase" >{{categoria.nombre}} </h5> 
+                            --- <a href="{{url_for('product.home',id=categoria.id)}}">Productos</a> 
+                            --- <a href="{{url_for('category.update',id=categoria.id)}}">editar</a>  
+                            --- <a href="{{url_for('category.delete',id=categoria.id)}}">eliminar</a>  
+                        </li>
+                    
+                    {% endfor %}
+                </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
