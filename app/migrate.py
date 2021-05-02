@@ -1,7 +1,4 @@
 from .database import *
-
-
-
 def create_db():
     db.drop_all()
     db.create_all()

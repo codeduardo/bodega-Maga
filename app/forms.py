@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField
+from wtforms import StringField, SubmitField, IntegerField,PasswordField
 from wtforms.validators import DataRequired
 
 class CategoriaForm(FlaskForm):
@@ -13,3 +13,7 @@ class ProductoForm(FlaskForm):
     categoria_id = IntegerField('Categoria_id',validators=[DataRequired()])
     guardar = SubmitField('Guardar')
     
+class LoginForm(FlaskForm):
+    username = StringField('Username:',validators = [DataRequired()])
+    password = PasswordField('Password:', validators = [DataRequired()])
+    login = SubmitField('LOGIN') 

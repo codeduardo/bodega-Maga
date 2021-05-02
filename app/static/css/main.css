@@ -1,0 +1,133 @@
+.card {
+    display: grid;
+    grid-template-rows:  80px 80px;
+    grid-template-areas: "text" "stats";
+    border-radius: 18px;
+    background: #121212;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    font-family: roboto;
+    text-align: center;
+  }
+
+  .card-text {
+    grid-area: text;
+    margin: 25px;
+    color: white;
+  }
+  .card-text .date {
+    color: rgb(255, 7, 110);
+    font-size:13px;
+  }
+  .card-text p {
+    color: grey;
+    font-size:15px;
+    font-weight: 300;
+  }
+  .card-text h2 {
+    margin-top:0px;
+    font-size:28px;
+  }
+
+  .card-stats {
+    grid-area: stats; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #E0FF00;
+  }
+
+  .card-stats .stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    
+  }
+  .card-stats .stat .value a{
+    color: #333333;
+    font-weight: 700;
+    
+  }
+  .card-stats .stat .value a:hover{
+    text-transform: uppercase;
+  }
+
+ 
+
+  .card:hover {
+    transform: scale(1.15);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+  }
+  .card {
+  
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin: 30px;
+  }
+
+  .verde{
+      color:#E0FF00;
+  }
+  
+  .fondo{
+    background: #121212;
+    height: 100vh;
+  }
+  .margin{
+    padding: 20px;
+  }
+  .center{
+    text-align: center;
+  }
+  .blanco{
+    color: white;
+    padding: 40px;
+    text-align: center;
+  }
+
+  * {
+    font-family: sans-serif; /* Change your font family */
+  }
+  
+  .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .content-table th,
+  .content-table td {
+    padding: 12px 15px;
+  }
+  
+  .content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+  
+  .content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+  }
+  

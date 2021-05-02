@@ -1,20 +1,25 @@
-{%  extends  "bootstrap/base.html"  %}
+{%  extends  "base.html"  %}
 
 {%  block  title  %} {{categoria.nombre}}{%  endblock  %}
 {%  block  content  %}
 
-<h1>Lista de Productos</h1>
-  <a href="{{url_for('product.create',id=categoria.id)}}">Agregar Producto para {{categoria.nombre}}</a>
+<div class="container fondo blanco">
+<h1 class="verde">Lista de Productos</h1>
+<b><a href="{{url_for('product.create',id=categoria.id)}}">Agregar Producto para {{categoria.nombre}}</a></b> 
 
-  
   <ul>
     {% for producto in productos %}
-    <li>{{producto.nombre}}
-      --- <a href="{{url_for('product.update',id=producto.id)}} ">editar</a>  
-      --- <a href="{{url_for('product.delete',id=producto.id)}}">eliminar</a> 
+    <li style="list-style-type: none; padding:20px 0 ; text-transform:uppercase">{{producto.nombre}}&nbsp{{producto.precio}} soles
+      &nbsp <a href="{{url_for('product.update',id=producto.id)}} ">editar</a>  
+      &nbsp <a href="{{url_for('product.delete',id=producto.id)}}">eliminar</a> 
     </li>
     {% endfor%}
   </ul>
+</div>
+  
+
+  
+  
 {%  endblock  %}
 
 

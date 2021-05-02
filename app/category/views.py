@@ -1,10 +1,13 @@
 from flask import render_template,flash,request,redirect,url_for
+from flask_login import login_required
+
 
 from . import category
 from ..database import Categoria, db
 from ..forms import CategoriaForm
 
 @category.route('/')
+@login_required
 def home():
     categorias = Categoria.query.all()
     num_categorias = Categoria.query.count()
@@ -13,6 +16,7 @@ def home():
 
 @category.route('/create', methods = ['GET','POST'])
 def create():
+    
     categoria = Categoria()
     categoriaForm= CategoriaForm(obj=categoria)
     if request.method =='POST':
@@ -35,8 +39,9 @@ def update(id) :
         if categoriaForm.validate_on_submit():
             categoriaForm.populate_obj(categoria)
             
-            db.session.commit()
             
+            db.session.commit()
+            flash('categoria actualizada',category='success')
             return redirect(url_for('category.home'))
     return render_template('category/updateC.html',categoriaForm=categoriaForm)
 
@@ -44,5 +49,8 @@ def update(id) :
 def delete(id):
     categoria = Categoria.query.get_or_404(id)
     db.session.delete(categoria)
+    
     db.session.commit()
+    
+    flash('categoria eliminada',category='success')
     return redirect(url_for('category.home'))

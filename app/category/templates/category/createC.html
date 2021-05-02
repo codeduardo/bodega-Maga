@@ -6,25 +6,16 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container ">
-        <div class="row ">
-            <h1>AGREGAR CATEGORIAS</h1>
-            <div class="col-md-4 offset-md-4">
-                
-                <form method='POST'>
-                    <dl></dl>
-                    {{wtf.quick_form(categoriaForm)}}
-
-                    <!-- {{categoriaForm.csrf_token}}
-
-                    <p>
-                        {{wtf.form_field(categoriaForm.nombre)}}
-                    </p>
-                    
-                    <p>{{categoriaForm.enviar()}}</p> -->
-
-                </form>
+    <div class="container">
+        <h3 class="text-center">
+            Agregar Categorias
+        </h3>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <hr>
+                {{wtf.quick_form(categoriaForm, button_map = {'submit':'primary'})}}
             </div>
         </div>
+
     </div>
 {% endblock %}

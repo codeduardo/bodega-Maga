@@ -14,6 +14,10 @@ def not_found(error):
 def not_found(error):
     return render_template('error/500.html',error=error)
 
+@app.route('/')
+def inicio():
+    return redirect(url_for('auth.login'))
+
 @app.route('/database')
 def database():
     init_db()
