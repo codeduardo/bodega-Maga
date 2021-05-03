@@ -1,2 +1,2 @@
-from app.migrate import init_db
-init_db()
+from app import db
+db.create_all()
