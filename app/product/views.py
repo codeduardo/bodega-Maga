@@ -5,6 +5,21 @@ from . import product
 from ..database import Categoria, Producto, db
 from ..forms import CategoriaForm, ProductoForm
 
+
+
+
+@product.route('/lista',methods=['GET', 'POST'])
+def lista():
+    if request.method=="POST":
+        tag=request.form['buscar']
+        buscar = "%{}%".format(tag)
+        productos = Producto.query.filter(Producto.nombre.like(buscar)).all()
+        categorias = Categoria.query.all()
+    else : 
+        productos = Producto.query.all()
+        categorias = Categoria.query.all()
+    return render_template('product/listP.html',productos=productos,categorias = categorias)
+
 @product.route('/view/<int:id>', methods = ['GET','POST'])   
 def home(id):
     categoria = Categoria.query.get_or_404(id)
@@ -47,3 +62,4 @@ def delete(id):
     db.session.delete(producto)
     db.session.commit()
     return redirect(url_for('category.home'))
+

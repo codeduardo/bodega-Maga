@@ -1,133 +1,252 @@
-.card {
-    display: grid;
-    grid-template-rows:  80px 80px;
-    grid-template-areas: "text" "stats";
-    border-radius: 18px;
-    background: #121212;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-    font-family: roboto;
+*{
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/foto4.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  color: #121212;
+  text-align: center;
+  color: white;
+}
+h2{
+  font-weight: 400;
+}
+hr{
+  background-color: #333;
+}
+
+
+/* ----------------NAV VAR-------------- */
+
+nav{
+  background:rgba(245, 134, 52,0.5);
+  height: 80px;
+  width: 100%;
+}
+label.logo{
+  color: #393e46;
+  font-size: 20px;
+  line-height: 80px;
+  padding: 0 85px 0 0;
+  font-weight: bold;
+}
+nav ul{
+  float: right;
+  margin-right: 20px;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a{
+  color: black;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+a.active,a:hover{
+  background: #1b9bff;
+  transition: .5s;
+}
+.checkbtn{
+  font-size: 30px;
+  color: #ffcc29;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+@media (max-width: 952px){
+  label.logo{
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  nav ul li a{
+    font-size: 16px;
+  }
+}
+@media (max-width: 858px){
+  .checkbtn{
+    display: inline-block;
+  }
+  ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgb(244, 209, 96);
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  a:hover,a.active{
+    background: none;
+    color: #121212;
+    font-weight: bold;
+  }
+  #check:checked ~ ul{
+    left: 0;
+  }
+}
+section{
+  background: url(bg1.jpg) no-repeat;
+  background-size: cover;
+  height: calc(100vh - 80px);
+}
+
+/* -----------------------CATEGORIAS---------------- */
+
+  /* ----------Cabecera--------  */
+  .bold{
+    font-weight: bold;
+  }
+  .cabecera{
+    margin-bottom: 20px ;
+  }
+  /* ----------Car------------ */
+  .container{
+    margin: 0 auto;
+    width: 90%;
+  }
+  .flex{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .text-center{
     text-align: center;
   }
+  .columna{
+    background: rgba(233, 212, 78, 0.7);
+    color: #333;
+    border: 1px solid #333;
+    margin: 0 auto ;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px #888;
+    width: 24%;
+    box-sizing: border-box;
+    height: auto;
 
-  .card-text {
-    grid-area: text;
-    margin: 25px;
+  }
+
+  .btn-opcion{
+    background: #333;
+    font-size: 25px;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    justify-content: space-between;
+  }
+  .btn-opcion i{
     color: white;
   }
-  .card-text .date {
-    color: rgb(255, 7, 110);
-    font-size:13px;
+
+  @media (max-width:1070px){
+    .columna{
+      width: 45%;
+      margin-bottom: 20px ;
+    }
   }
-  .card-text p {
-    color: grey;
-    font-size:15px;
-    font-weight: 300;
-  }
-  .card-text h2 {
-    margin-top:0px;
-    font-size:28px;
+  
+  @media (max-width:600px){
+    .columna{
+      width: 100%;
+      margin-bottom: 20px ;
+    }
   }
 
-  .card-stats {
-    grid-area: stats; 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background: #E0FF00;
-  }
 
-  .card-stats .stat {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: white;
-    
-  }
-  .card-stats .stat .value a{
-    color: #333333;
-    font-weight: 700;
-    
-  }
-  .card-stats .stat .value a:hover{
+  /* ----------------------------LISTA---------------------- */
+
+  .mayuscula {
     text-transform: uppercase;
   }
-
- 
-
-  .card:hover {
-    transform: scale(1.15);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+  .lgrande{
+    font-weight: bold;
+    font-size: 15px;
   }
-  .card {
-  
-    transition: 0.5s ease;
-    cursor: pointer;
-    margin: 30px;
+  .azul{
+    color: #c5d7bd;
   }
-
-  .verde{
-      color:#E0FF00;
-  }
-  
-  .fondo{
-    background: #121212;
-    height: 100vh;
-  }
-  .margin{
-    padding: 20px;
-  }
-  .center{
-    text-align: center;
+  .fnaranja{
+    background: rgba(240, 235, 204,0.7);
+    height: 200px;
   }
   .blanco{
-    color: white;
-    padding: 40px;
-    text-align: center;
+    color: black;
   }
 
-  * {
-    font-family: sans-serif; /* Change your font family */
-  }
-  
-  .content-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    min-width: 400px;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .content-table thead tr {
-    background-color: #009879;
-    color: #ffffff;
-    text-align: left;
-    font-weight: bold;
-  }
-  
-  .content-table th,
-  .content-table td {
-    padding: 12px 15px;
-  }
-  
-  .content-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-  }
-  
-  .content-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-  }
-  
-  .content-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
-  }
-  
-  .content-table tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
-  }
-  
+  /* -------------search----------------- */
+
+  .buscar-caja {
+ background: #2f3640;
+ height: 55px;
+ border-radius: 40px;
+ padding: 10px;
+ margin-bottom: 20PX;
+}
+
+.buscar-caja:hover > .buscar-txt {
+ width: 80%;
+ padding: 0 6px;
+}
+
+.buscar-caja:hover > .buscar-btn {
+ background: white;
+ color: black;
+}
+
+.buscar-btn {
+ color: #e84118;
+ float: right;
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ background: #2f3640;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ transition: 0.4s;
+ color: white;
+ cursor: pointer;
+}
+
+.buscar-btn > i {
+ font-size: 30px;
+}
+
+.buscar-txt {
+ border: none;
+ background: none;
+ outline: none;
+ float: left;
+ padding: 0;
+ color: white;
+ font-size: 16px;
+ transition: 0.4s;
+ line-height: 40px;
+ width: 0px;
+ font-weight: bold;
+}

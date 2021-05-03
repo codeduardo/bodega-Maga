@@ -1,0 +1,51 @@
+{%  extends  "base.html"  %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{%  block  title  %}  {%  endblock  %}
+{%  block  content  %}
+<div class="fondo">
+    <div class="cabecera">
+        <h2 class = 'bold azul'>PRODUCTOS </h2>
+        
+    </div>
+    <!-- search -->
+    <form action="{{url_for('product.lista')}}" class="buscar-caja" method="POST">
+         
+        <input type="text" name="buscar" id="buscar" class="buscar-txt"   placeholder="Buscar..."/>
+        <button class="buscar-btn" type="submit" id="boton">
+            <i class="fas fa-search"></i>
+        </button>
+
+        
+    </form>
+    <!-- endsearch -->
+    <section class="container flex text-center">
+        
+        {% if productos %}
+            {% for producto in productos %}             
+                
+            <div class="columna fnaranja blanco ">
+                <h2 class="bold mayuscula">{{producto.nombre}}</h2>  
+                <hr>
+                <div class="lgrande mayuscula ">
+                    <p> Precio &nbsp; : &nbsp; {{producto.precio}}</p>
+                    
+
+                    {% for categoria in categorias %}
+                        {% if producto.categoria_id  == categoria.id %}
+                            <p>{{categoria.nombre}}</p>
+                        {% endif %}
+
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% endfor %}
+        {% else%}
+            <h1 class="lgrande text-center">No hay productos</h1>
+        {% endif %}
+            
+        
+    </section>
+</div>
+{%  endblock  %}

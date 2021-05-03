@@ -3,18 +3,47 @@
 {%  block  title  %} {{categoria.nombre}}{%  endblock  %}
 {%  block  content  %}
 
-<div class="container fondo blanco">
-<h1 class="verde">Lista de Productos</h1>
-<b><a href="{{url_for('product.create',id=categoria.id)}}">Agregar Producto para {{categoria.nombre}}</a></b> 
+<!--  -->
+<div class="fondo">
+  <div class="cabecera">
+      <h2 class = 'bold azul'>PRODUCTOS &nbsp; - &nbsp; <span class="bold mayuscula">{{categoria.nombre}}</h2>
+      
+  </div>
+  <!-- search -->
+  <form action="{{url_for('product.lista')}}" class="buscar-caja" method="POST">
+       
+      <input type="text" name="buscar" id="buscar" class="buscar-txt"   placeholder="Buscar..."/>
+      <button class="buscar-btn" type="submit" id="boton">
+          <i class="fas fa-search"></i>
+      </button>
 
-  <ul>
-    {% for producto in productos %}
-    <li style="list-style-type: none; padding:20px 0 ; text-transform:uppercase">{{producto.nombre}}&nbsp{{producto.precio}} soles
-      &nbsp <a href="{{url_for('product.update',id=producto.id)}} ">editar</a>  
-      &nbsp <a href="{{url_for('product.delete',id=producto.id)}}">eliminar</a> 
-    </li>
-    {% endfor%}
-  </ul>
+      
+  </form>
+  <!-- endsearch -->
+  <section class="container flex text-center">
+      
+      {% if productos %}
+          {% for producto in productos %}             
+              
+          <div class="columna fnaranja blanco ">
+              <h2 class="bold mayuscula">{{producto.nombre}}</h2>  
+              <hr>
+              <div class="lgrande mayuscula ">
+                  <p> Precio &nbsp; : &nbsp; {{producto.precio}}</p>
+              </div>
+              <div class="opciones">
+                <div class="btn-opcion"> <a href="{{url_for('product.update',id=producto.id)}} "><i class="fas fa-edit"></i></a></div>
+                <div class="btn-opcion"><a href="{{url_for('product.delete',id=producto.id)}}"><i class="fas fa-trash-alt"></i></a></div>
+              </div>
+          </div>
+
+          {% endfor %}
+      {% else%}
+          <h1 class="lgrande text-center">No hay productos</h1>
+      {% endif %}
+          
+      
+  </section>
 </div>
   
 

@@ -6,46 +6,29 @@
 {% endblock %}
 
 {% block content %}
-<div class=" container fondo ">
-    <div class="raw">
-        <div class="col-ml-12 text-center ">
-            <h1 class = 'verde'>LISTA DE CATEGORIAS</h1>
-            <!-- <a class="btn btn-danger" href="{{url_for('auth.logout')}}">Cerrar Sesión</a> -->
-            <h3><a class="btn btn-info " href="{{url_for('category.create')}}">Agregar</a></h3>
-
-                <ul>
-                    {% for categoria in categorias%}
+<div class="fondo">
+            <div class="cabecera">
+                <h2 class = 'bold'>CATEGORIAS</h2>
+                <div class="opciones">
+                    <a class="btn-opcion" href="{{url_for('category.create')}}"><i class="fas fa-plus-square"></i></a>
+                    <a class="btn-opcion" href="{{url_for('auth.logout')}}"><i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            </div>
+            <section class="container flex text-center">
+                {% for categoria in categorias%}             
                     
-                        <li style="list-style-type: none;"style="list-style-type: none;">
-
-                            <div class="card">
-                                <div class="card-text">
-                                    
-                                    <h2>{{categoria.nombre}}</h2>
-                                </div>
-                                <div class="card-stats">
-                                    <div class="stat">
-                                        <div class="value"><a href="{{url_for('product.home',id=categoria.id)}}">Productos</a></div>
-                    
-                                    </div>
-                                    <div class="stat border">
-                                        <div class="value"><a href="{{url_for('category.update',id=categoria.id)}}">editar</a> </div>
-                                        
-                                    </div>
-                                    <div class="stat">
-                                        <div class="value"><a href="{{url_for('category.delete',id=categoria.id)}}">eliminar</a></div>
-                                        
-                                    </div>
-                                </div>
-                    
-                                    
+                        <div class="columna">
+                            <h2 class="bold mayuscula ">{{categoria.nombre}}</h2>  
+                            <hr>
+                            <div class="opciones">
+                                <div class="btn-opcion"><a href="{{url_for('product.home',id=categoria.id)}}"><i class="fas fa-list-alt"></i></a></div>
+                                <div class="btn-opcion"><a href="{{url_for('category.update',id=categoria.id)}}"><i class="fas fa-edit"></i></a> </div>
+                                <div class="btn-opcion"><a href="{{url_for('category.delete',id=categoria.id)}}"><i class="fas fa-trash-alt"></i></a></div>
                             </div>
-                        </li>
-                    
-                    {% endfor %}
-                </ul>
-        </div>
-    </div>
+                        </div>
+                
+                {% endfor %}
+            </section>
 </div>
 {% endblock %}
 
