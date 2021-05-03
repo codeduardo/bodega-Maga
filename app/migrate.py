@@ -13,3 +13,5 @@ def init_db():
 
     db.session.add(admin)
     db.session.commit()
+
+init_db()   
