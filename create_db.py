@@ -1,2 +1,2 @@
-from .migrate import init_db
+from app.migrate import init_db
 init_db()
