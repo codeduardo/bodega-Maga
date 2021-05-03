@@ -6,3 +6,5 @@ Flask-Bootstrap
 psycopg2
 Flask-Script
 Flask-Login
+Flask-FontAwesome
+gunicorn
