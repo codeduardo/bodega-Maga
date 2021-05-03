@@ -1,6 +1,6 @@
 import click
 from flask.cli import with_appcontext
-from app.migrate import init_db()
+from app.migrate import init_db
 
 
 @click.command(name='create_tables')
